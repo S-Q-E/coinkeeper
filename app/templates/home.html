@@ -15,6 +15,7 @@
             <p class="article-content">{{ incomes.value }}</p>
           </div>
         </article>
+
     {% endfor %}
     {% for page_num in incomes.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
         {% if page_num %}

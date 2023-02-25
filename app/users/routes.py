@@ -1,8 +1,7 @@
-from flask import Blueprint
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from app import db, bcrypt
-from app.models import User, Incomes, Expenses
+from app.models import User, Incomes, Expenses, Post
 from app.users.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
                                    RequestResetForm, ResetPasswordForm)
 from app.users.utils import save_picture, send_reset_email
@@ -52,6 +51,7 @@ def logout():
     flash("Вы вышли из аккаунта")
     return redirect(url_for('main.index'))
 
+
 @users.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
@@ -72,6 +72,7 @@ def account():
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)
 
+
 @users.route("/user/<string:username>")
 def user_posts(username):
     page = request.args.get('page', default=1, type=int)
@@ -80,7 +81,6 @@ def user_posts(username):
         .order_by(Post.date_posted.desc())\
         .paginate(page=page, per_page=5)
     return render_template('user_posts.html', posts=posts, user=user)
-
 
 
 @users.route('/reset_password', methods=['GET', 'POST'])
