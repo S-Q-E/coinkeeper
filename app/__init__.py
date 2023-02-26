@@ -26,10 +26,12 @@ def create_app(config_class=Config):
     from app.main.routes import main
     from app.errors.handlers import errors
     from app.expenses.routes import expenses
+    from app.posts.routes import posts
     app.register_blueprint(users)
     app.register_blueprint(main)
     app.register_blueprint(expenses)
     app.register_blueprint(errors)
+    app.register_blueprint(posts)
     with app.app_context():
         db.create_all()
         db.session.commit()

@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     incomes = db.relationship('Incomes', backref='user', lazy=True)
     expenses = db.relationship('Expenses', backref='user', lazy=True)
+    posts = db.relationship('Post', backref='author', lazy=True)
 
     def get_reset_token(self, expires=500):
         s = Serializer(current_app.config['SECRET_KEY'], 'auth')
@@ -63,5 +64,5 @@ class Post(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime(), nullable=False, default=datetime.utcnow())
-    desription = db.Column(db.Text(), nullable=False)
+    description = db.Column(db.Text(), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
