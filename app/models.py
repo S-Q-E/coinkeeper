@@ -16,8 +16,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
-    incomes = db.relationship('Incomes', backref='user', lazy=True)
-    expenses = db.relationship('Expenses', backref='user', lazy=True)
+    transactions = db.relationship('Transaction', backref='user', lazy=True)
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def get_reset_token(self, expires=500):
@@ -38,26 +37,16 @@ class User(db.Model, UserMixin):
         return f"{self.username}, {self.email}, {self.image_file}"
 
 
-class Expenses(db.Model):
+class Transaction(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
+    type = db.Column(db.String(20), nullable=False)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime(), nullable=False, default=datetime.utcnow())
     value = db.Column(db.Integer(), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
-        return f"{self.title}, {self.date_posted} {self.value}"
-
-
-class Incomes(db.Model):
-    id = db.Column(db.Integer(), primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    date_posted = db.Column(db.DateTime(), nullable=False, default=datetime.utcnow())
-    value = db.Column(db.Integer(), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
-    def __repr__(self):
-        return f"{self.title}, {self.date_posted} {self.value}"
+        return f"{self.type} {self.title}, {self.date_posted} {self.value}"
 
 
 class Post(db.Model):

@@ -1,5 +1,6 @@
 from flask import Blueprint, request, render_template
-from app.models import Expenses, Incomes, Post
+from app.models import Post
+from app.my_budget.forms import BudgetForm
 
 main = Blueprint('main', __name__)
 
@@ -15,3 +16,9 @@ def index():
 @main.route("/about")
 def about():
     return render_template('about.html', title='About Page')
+
+
+@main.route("/my_budget")
+def my_budget():
+    form = BudgetForm()
+    return render_template('my_budget.html', form=form)

@@ -78,3 +78,194 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-instagram {
+  background: red;
+  color: white;
+}
+
+.fa-telegram {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-github {
+  background: black;
+  color: white;
+}
+
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+  /* Apply a turquoise background color to the form */
+  form {
+    background-color: #87CEEB;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Add a hover animation to the form fields */
+  .form-group:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Style the submit button */
+  button[type="submit"] {
+    background-color: #fff;
+    color: #87CEEB;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Add a hover animation to the submit button */
+  button[type="submit"]:hover {
+    background-color: #87CEEB;
+    color: #fff;
+  }
+
+   /* Apply some basic styles to the transactions list */
+  .transactions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .transaction-title {
+    font-weight: bold;
+  }
+
+  .transaction-value {
+    font-style: italic;
+  }
+
+  /* Style the buttons */
+  .btn {
+    background-color: turquoise;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn:hover {
+    background-color: #fff;
+    color: turquoise;
+    border: 1px solid turquoise;
+  }
+
+  /* Style the popup form */
+  .popup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .popup-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .popup-form input[type="text"],
+  .popup-form input[type="number"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .popup-form button[type="submit"] {
+    background-color: turquoise;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .popup-form button[type="submit"]:hover {
+    background-color: #fff;
+    color: turquoise;
+    border: 1px solid turquoise;
+  }

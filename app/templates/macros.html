@@ -1,0 +1,16 @@
+{% macro light_or_dark_mode(element) %}
+  {% if request.args.get('mode') == "dark" %}
+    <a href="{{ request.path }}">Светлый режим</a>
+    <style>
+      {{ element }} {
+        background-color: #212F3C;
+        color: 	#E0FFFF;
+      }
+      {{ element }} a {
+        color: #000080 !important;
+      }
+    </style>
+  {% else %}
+    <a href="{{ request.path }}?mode=dark">Темный режим</a>
+  {% endif %}
+{% endmacro %}

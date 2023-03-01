@@ -1,0 +1,49 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+<!-- The transactions list -->
+<ul class="transactions">
+  {% if transactions %}
+  {% for transaction in transactions %}
+  <li class="transaction">
+    <div class="transaction-details">
+      <div class="transaction-title">{{ transaction.title }}</div>
+      <div class="transaction-value">{{ transaction.value }}</div>
+    </div>
+    <button class="btn delete-transaction">удалить</button>
+  </li>
+</ul>
+  {% endfor %}
+  {% else %}
+  <p>У вас пока нет записей</p>
+  {% endif %}
+<!-- The buttons to delete and add transactions -->
+<div>
+  <button class="btn delete-all-transactions">Удалить все</button>
+  <button class="btn add-transaction">Добавить</button>
+</div>
+
+<!-- The popup form to add a new transaction -->
+<div class="popup-form">
+  <form method="POST" action="{{url_for('budget.add_transaction')}}">
+    <div class="form-group">
+      <label for="transaction-type">Выберите тип:</label>
+      <select class="form-control" id="transaction-type" name="transaction_type">
+        <option value="expenses">Расходы</option>
+        <option value="incomes">Доходы</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="title">Название:</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="form-group">
+      <label for="value">Сумма:</label>
+      <input type="number" class="form-control" id="value" name="value" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Готово</button>
+  </form>
+</div>
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+{% endblock %}
+

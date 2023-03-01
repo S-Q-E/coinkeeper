@@ -32,3 +32,4 @@ def send_reset_email(user):
     If you don't make this request then simply ignore this email and no changing
     """
     mail.send(msg)
+

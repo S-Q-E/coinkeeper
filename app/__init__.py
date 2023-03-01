@@ -25,11 +25,11 @@ def create_app(config_class=Config):
     from app.users.routes import users
     from app.main.routes import main
     from app.errors.handlers import errors
-    from app.expenses.routes import expenses
     from app.posts.routes import posts
+    from app.my_budget.routes import budget
     app.register_blueprint(users)
     app.register_blueprint(main)
-    app.register_blueprint(expenses)
+    app.register_blueprint(budget)
     app.register_blueprint(errors)
     app.register_blueprint(posts)
     with app.app_context():
